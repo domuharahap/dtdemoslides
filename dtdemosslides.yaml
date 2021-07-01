@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: dtdemoslides
+  name: dtdemoslides
+spec:
+  containers:
+  - image: domuharahap/dtdemoslides
+    name: dtdemoslides
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    run: dtdemoslides
+  name: dtdemoslides
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+    nodePort: 30003
+  selector:
+    run: dtdemoslides
+  type: NodePort
+status:
+  loadBalancer: {}
