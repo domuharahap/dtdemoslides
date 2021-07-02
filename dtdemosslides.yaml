@@ -3,7 +3,7 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    run: dtdemoslides
+    app: dtdemoslides
   name: dtdemoslides
 spec:
   ports:
@@ -12,7 +12,7 @@ spec:
     targetPort: 80
     nodePort: 30003
   selector:
-    run: dtdemoslides
+    app: dtdemoslides
   type: NodePort
 status:
   loadBalancer: {}
