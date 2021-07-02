@@ -18,19 +18,26 @@ status:
   loadBalancer: {}
 
 ---
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  creationTimestamp: null
   labels:
-    run: dtdemoslides
+    app: dtdemoslides
   name: dtdemoslides
 spec:
-  containers:
-  - image: domuharahap/dtdemoslides
-    name: dtdemoslides
-    resources: {}
-  dnsPolicy: ClusterFirst
-  restartPolicy: Always
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dtdemoslides
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: dtdemoslides
+    spec:
+      containers:
+      - image: domuharahap/dtdemoslides:v1
+        name: dtdemoslides
+        resources: {}
 status: {}
 
