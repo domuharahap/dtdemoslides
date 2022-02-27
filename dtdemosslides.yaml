@@ -3,8 +3,8 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: dtdemoslides
-  name: dtdemoslides
+    app: dtslides
+  name: dtslides
 spec:
   ports:
   - port: 80
@@ -12,7 +12,7 @@ spec:
     targetPort: 80
     nodePort: 30003
   selector:
-    app: dtdemoslides
+    app: dtslides
   type: NodePort
 status:
   loadBalancer: {}
@@ -22,22 +22,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: dtdemoslides
-  name: dtdemoslides
+    app: dtslides
+  name: dtslides
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: dtdemoslides
+      app: dtslides
   strategy: {}
   template:
     metadata:
       labels:
-        app: dtdemoslides
+        app: dtslides
     spec:
       containers:
-      - image: domuharahap/dtdemoslides:v1
-        name: dtdemoslides
+      - image: domuharahap/dtslides:latest
+        name: dtslides
         resources: {}
 status: {}
 
