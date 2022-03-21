@@ -36,7 +36,7 @@ spec:
         app: dtslides
     spec:
       containers:
-      - image: domuharahap/dtslides:latest
+      - image: domuharahap/dtslides:v3
         name: dtslides
         resources: {}
 status: {}
